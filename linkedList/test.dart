@@ -29,4 +29,29 @@ void main() {
     expect(my_list.head!.value, 0);
     expect(my_list.tail!.value, 30);
   });
+
+  test('remove(value) remove the first occurrence of [value] from this list',
+      () {
+    LinkedList my_list = new LinkedList();
+    // remove root
+    my_list.head = Node(10);
+    my_list.tail = my_list.head;
+    my_list.size = 1;
+
+    expect(my_list.remove(10), true);
+    expect(my_list.head, null);
+    expect(my_list.tail, null);
+    expect(my_list.size, 0);
+
+    // remove element anywhere
+    my_list.head = Node(10);
+    my_list.head!.next = Node(20);
+    my_list.head!.next!.next = Node(30);
+    my_list.size = 3;
+
+    expect(my_list.remove(20), true);
+    expect(my_list.head!.value, 10);
+    expect(my_list.head!.next!.value, 30);
+    expect(my_list.size, 2);
+  });
 }

@@ -14,6 +14,10 @@ class LinkedList {
 
   LinkedList.initizalized(this.head, this.tail);
 
+  bool isEmpty() {
+    return this.head == null && this.tail == null;
+  }
+
   void insert(index, value) {
     this.size += 1;
     Node? newNode = new Node(value);
@@ -45,5 +49,31 @@ class LinkedList {
       newNode.next = actual.next;
     }
     actual.next = newNode;
+  }
+
+  bool remove(int value) {
+    if (isEmpty()) {
+      return false;
+    }
+
+    if (this.size == 1) {
+      this.head = null;
+      this.tail = null;
+      this.size -= 1;
+      return true;
+    }
+
+    Node? actual = this.head;
+    Node? previous;
+    while (actual!.next != null) {
+      if (actual.value == value) {
+        previous!.next = actual.next;
+        this.size -= 1;
+        return true;
+      }
+      previous = actual;
+      actual = actual.next;
+    }
+    return false;
   }
 }
