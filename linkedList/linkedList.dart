@@ -18,6 +18,21 @@ class LinkedList {
     return this.head == null && this.tail == null;
   }
 
+  int indexOf(int value) {
+    if (!isEmpty()) {
+      Node? actual = this.head;
+      int i = 0;
+      while (actual != null) {
+        if (actual.value == value) {
+          return i;
+        }
+        actual = actual.next;
+        i++;
+      }
+    }
+    return -1;
+  }
+
   void insert(index, value) {
     this.size += 1;
     Node? newNode = new Node(value);

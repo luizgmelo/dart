@@ -54,4 +54,24 @@ void main() {
     expect(my_list.head!.next!.value, 30);
     expect(my_list.size, 2);
   });
+
+  test(
+      'indexOf(value) method returns the first occurrence of the given element in a list. If the element is not found, the method will return -1.',
+      () {
+    LinkedList my_list = new LinkedList();
+    my_list.insert(0, 22);
+    my_list.insert(1, 43);
+    my_list.insert(2, 12);
+    my_list.insert(3, 9);
+
+    expect(my_list.indexOf(22), 0);
+    expect(my_list.indexOf(43), 1);
+    expect(my_list.indexOf(12), 2);
+    expect(my_list.indexOf(9), 3);
+
+    expect(my_list.indexOf(99), -1);
+    expect(my_list.indexOf(23), -1);
+    expect(my_list.indexOf(44), -1);
+    expect(my_list.indexOf(-96), -1);
+  });
 }
