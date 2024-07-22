@@ -37,6 +37,23 @@ class LinkedList {
     return indexOf(value) != -1;
   }
 
+  void add(int value) {
+    Node? newNode = Node(value);
+    if (this.isEmpty()) {
+      this.head = newNode;
+      this.tail = this.head;
+      this.size++;
+      return;
+    }
+    Node? actual = this.head;
+    while (actual!.next != null) {
+      actual = actual.next;
+    }
+    actual.next = newNode;
+    this.tail = actual.next;
+    this.size++;
+  }
+
   void insert(index, value) {
     this.size += 1;
     Node? newNode = new Node(value);

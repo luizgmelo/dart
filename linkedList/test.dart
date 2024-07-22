@@ -94,4 +94,20 @@ void main() {
     expect(my_list.contains(44), false);
     expect(my_list.contains(-96), false);
   });
+
+  test(
+      'The .add() method in Dart is used to append a single element to the end of a list. It modifies the original list and extends its length by one to accommodate the new element.',
+      () {
+    LinkedList my_list = new LinkedList();
+    my_list.add(22);
+    my_list.add(43);
+    my_list.add(12);
+    my_list.add(9);
+
+    expect(my_list.head!.value, 22);
+    expect(my_list.head!.next!.value, 43);
+    expect(my_list.head!.next!.next!.value, 12);
+    expect(my_list.head!.next!.next!.next!.value, 9);
+    expect(my_list.size, 4);
+  });
 }
