@@ -74,4 +74,24 @@ void main() {
     expect(my_list.indexOf(44), -1);
     expect(my_list.indexOf(-96), -1);
   });
+
+  test(
+      'The .contains(value) method determines whether a specified element is present in a list. It returns a Boolean value of true if the element is found in the list and false if it happens otherwise.',
+      () {
+    LinkedList my_list = new LinkedList();
+    my_list.insert(0, 22);
+    my_list.insert(1, 43);
+    my_list.insert(2, 12);
+    my_list.insert(3, 9);
+
+    expect(my_list.contains(22), true);
+    expect(my_list.contains(43), true);
+    expect(my_list.contains(12), true);
+    expect(my_list.contains(9), true);
+
+    expect(my_list.contains(99), false);
+    expect(my_list.contains(23), false);
+    expect(my_list.contains(44), false);
+    expect(my_list.contains(-96), false);
+  });
 }

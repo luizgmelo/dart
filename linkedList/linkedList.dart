@@ -33,6 +33,10 @@ class LinkedList {
     return -1;
   }
 
+  bool contains(int value) {
+    return indexOf(value) != -1;
+  }
+
   void insert(index, value) {
     this.size += 1;
     Node? newNode = new Node(value);
