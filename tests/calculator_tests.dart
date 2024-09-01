@@ -3,12 +3,15 @@ import 'package:test/test.dart';
 import '../calculator/calculatorCLI.dart';
 
 void main() {
-
-
   group("Testes da calculadora CLI | ", () {
+    // Arrange
+    late final calculatorCli; 
+
+    setUpAll(() {
+      calculatorCli = Calculatorcli();
+    });
+
     test('Teste de soma', () {
-      // Arrange
-      final calculatorCli = Calculatorcli();
       // Act
       int result = calculatorCli.sum(2, 2);
       // Assert
@@ -16,8 +19,6 @@ void main() {
     });
 
     test('Teste de subtração', () {
-      // Arrange
-      final calculatorCli = Calculatorcli();
       // Act
       int result = calculatorCli.subtract(2, 2);
       // Assert
@@ -25,8 +26,6 @@ void main() {
     });
 
     test('Teste de divisão', () {
-      // Arrange
-      final calculatorCli = Calculatorcli();
       // Act
       int result = calculatorCli.divide(2, 2);
       // Assert
@@ -34,8 +33,6 @@ void main() {
     });
 
     test('Teste de multiplicação', () {
-      // Arrange
-      final calculatorCli = Calculatorcli();
       // Act
       int result = calculatorCli.multiply(2, 2);
       // Assert
