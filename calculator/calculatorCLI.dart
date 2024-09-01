@@ -8,36 +8,43 @@ void main() {
   print(
       "What operation you want to do:\n1.Sum\n2.Subtract\n3.Multiply\n4.Divide\nYour option:");
   String? option = stdin.readLineSync();
+  Calculatorcli calculatorcli = new Calculatorcli();
   switch (option) {
     case "1":
-      sum(a, b);
+      calculatorcli.sum(a, b);
       break;
     case "2":
-      subtract(a, b);
+      calculatorcli.subtract(a, b);
       break;
     case "3":
-      multiply(a, b);
+      calculatorcli.multiply(a, b);
       break;
     case "4":
-      divide(a, b);
+      calculatorcli.divide(a, b);
       break;
     default:
       print("Invalid option");
   }
 }
 
-void sum(int a, int b) {
-  print("$a + $b = ${a + b}");
-}
+class Calculatorcli {
+  int sum(int a, int b) {
+    print("$a + $b = ${a + b}");
+    return a + b;
+  }
 
-void subtract(int a, int b) {
-  print("$a - $b = ${a - b}");
-}
+  int subtract(int a, int b) {
+    print("$a - $b = ${a - b}");
+    return a - b;
+  }
 
-void multiply(int a, int b) {
-  print("$a x $b = ${a * b}");
-}
+  int multiply(int a, int b) {
+    print("$a x $b = ${a * b}");
+    return a * b;
+  }
 
-void divide(int a, int b) {
-  print("$a / $b = ${a / b}");
+  int divide(int a, int b) {
+    print("$a / $b = ${a ~/ b}");
+    return a ~/ b;
+  }
 }
